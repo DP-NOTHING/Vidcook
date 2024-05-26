@@ -1,7 +1,5 @@
 'use client';
 import CreativeEditorSDK from '@cesdk/cesdk-js';
-
-
 import { useEffect, useRef } from 'react';
 import { Box } from '@mantine/core';
 import { pageFormatDefinition } from '../utils/viewformat.js';
@@ -19,7 +17,6 @@ const config = {
     onLoad : 'load',
     onDownload:'Download',
     onUpload: 'local',
-    onVideoExport : 'VideoExport',
   },
   ui :{
     elements :{
@@ -41,16 +38,16 @@ const Editor = (props = {}) => {
   useEffect(() => {
     if (cesdk_container.current) {
       config.license = process.env.NEXT_PUBLIC_LICENSE;
-      config.baseURL =
-        'https://cdn.img.ly/packages/imgly/cesdk-js/1.27.1/assets';
+      config.baseURL ='https://cdn.img.ly/packages/imgly/cesdk-js/1.27.1/assets';
       config.callbacks = { onUpload: 'local' ,onDownload:'Download',onExport: 'download'};
 
 
       CreativeEditorSDK.create(cesdk_container.current, config).then(
         async (instance) => {
+          instance.addDefaultAssetSources();
           instance.addDemoAssetSources({ excludeAssetSourceIds: ['ly.img.video','ly.img.audio','ly.img.image'],sceneMode: 'Video',});
           await instance.createVideoScene(pageFormatDefinition);
-          const engine = instance.engine;      
+          const engine = instance.engine;
         }
       );
       
@@ -59,11 +56,10 @@ const Editor = (props = {}) => {
 
 
   return (
-    <Box
-    id='cesdk_container'
+    <div
       ref={cesdk_container}
-      style={{ width: '100vw', height: '100vh' }}
-    ></Box>
+      style={{ width: '100vw', height: '100vh' ,maxHeight: '100vh',maxWidth: '100vw'}}
+    ></div>
   );
 };
 
