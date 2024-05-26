@@ -4,7 +4,6 @@ import {
   DesignUnit,
   _RequiredConfiguration
 } from '@cesdk/cesdk-js';
-import { ContentJSON } from './lib/loadAssetSourceFromContentJSON';
 import { caseAssetPath } from './util';
 
 export const pageFormatI18n = (formats: PageFormatAsset[]) => {

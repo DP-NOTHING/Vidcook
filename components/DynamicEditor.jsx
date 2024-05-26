@@ -6,6 +6,4 @@ const Editorwrap = dynamic(
     ssr: false
   }
 );
-
-
 export default Editorwrap;
