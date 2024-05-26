@@ -24,6 +24,10 @@ const Editor = (props = {}) => {
           instance.addDefaultAssetSources();
           instance.addDemoAssetSources({ sceneMode: 'Video' });
           await instance.createVideoScene();
+
+          const engine = instance.engine;
+          engine.block.resizeContentAware([2], 1920, 1080);
+          console.log(engine);
         }
       );
       
