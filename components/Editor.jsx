@@ -44,7 +44,7 @@ const Editor = (props = {}) => {
 
       CreativeEditorSDK.create(cesdk_container.current, config).then(
         async (instance) => {
-          instance.addDefaultAssetSources();
+          // instance.addDefaultAssetSources();
           instance.addDemoAssetSources({ excludeAssetSourceIds: ['ly.img.video','ly.img.audio','ly.img.image'],sceneMode: 'Video',});
           await instance.createVideoScene(pageFormatDefinition);
           const engine = instance.engine;
