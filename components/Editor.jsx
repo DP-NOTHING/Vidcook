@@ -56,10 +56,10 @@ const Editor = (props = {}) => {
 
 
   return (
-    <div
+    <Box
       ref={cesdk_container}
       style={{ width: '100vw', height: '100vh' ,maxHeight: '100vh',maxWidth: '100vw'}}
-    ></div>
+    ></Box>
   );
 };
 
